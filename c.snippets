@@ -1,7 +1,8 @@
-clearsnippets main for while if ife
+clearsnippets main for while if ife once
 
 snippet main "main() (main)"
-int main(int argc, char const *argv[]){
+int main(int argc, char const *argv[])
+{
 	${0:/* code */}
 	return 0;
 }
@@ -32,5 +33,30 @@ if (${1:/* condition */}){
         ${3:/* else */}
 }
 endsnippet
+
+snippet once "Include header once only guard"
+#ifndef ${1:`!p
+if not snip.c:
+	import string
+	name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
+	snip.rv = ('__%s' % name.upper())
+else:
+    snip.rv = snip.c`}
+#define $1
+
+${0}
+
+#endif /* end of include guard: $1 */
+
+endsnippet
+
+#own snippets
+#snippet func "func() (func)"
+#int $1:(int argc, char const *argv[])
+#{
+#	${0:/* code */}
+#	return 0;
+#}
+#endsnippet
 
 # vim:ft=snippets:

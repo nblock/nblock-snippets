@@ -1,10 +1,5 @@
 global !p
-def complete (t, opts):
-  if t:
-    opts = [m[len(t):] for m in opts if m.startswith(t)]
-  if len(opts) == 1:
-    return opts[0]
-  return "(" + "|".join(opts) + ")"
+from wiki_base import *
 endglobal
 
 snippet h1 "Header Level 1" b
@@ -32,25 +27,28 @@ snippet h5 "Header Level 5" b
 $0
 endsnippet
 
-snippet ** "bold text"
-**${VISUAL}$1**
-$0
+snippet b "bold text"
+**${VISUAL}$0**
 endsnippet
 
-snippet // "italic text"
-//${VISUAL}$1//
+snippet i "italic text"
+//${VISUAL}$0//
 endsnippet
 
-snippet __ "underlined text"
-__${VISUAL}$1__
+snippet bi "bold and italic text"
+**//${VISUAL}$0//**
 endsnippet
 
-snippet '' "monospaced text"
+snippet strike "striked or deleted text"
+<del>${VISUAL}$0</del>
+endsnippet
+
+snippet u "underlined text"
+__${VISUAL}$0__
+endsnippet
+
+snippet m "monospaced text"
 ''${VISUAL}$1''
-endsnippet
-
-snippet del "deleted text"
-<del>${VISUAL}$1</del>
 endsnippet
 
 snippet sup "superscript text"
@@ -61,21 +59,23 @@ snippet sub "subscript text"
 <sub>${VISUAL}$1</sub>
 endsnippet
 
-snippet * "bulletpoint list" b
+snippet nowiki "nowiki text"
+%%${VISUAL}$1%%
+endsnippet
+
+snippet bl "bulletpoint list" b
   * ${VISUAL}$1
 endsnippet
 
-snippet - "ordered list" b
+snippet ol "ordered list" b
   - ${VISUAL}$1
 endsnippet
 
-snippet code "code"
-<code>
-${VISUAL}$1
-</code>
+snippet il "a link to another ressource (internal)"
+[[${VISUAL}$1|$2]]
 endsnippet
 
-snippet link "a link to another ressource"
+snippet el "a link to another ressource (external)"
 [[${VISUAL}$1|$2]]
 endsnippet
 
@@ -83,6 +83,22 @@ snippet res "external ressources such as images and files"
 {{${VISUAL}$1|$2}}
 endsnippet
 
-snippet ~~ "control macro"
+snippet code "code"
+<code $1`!p snip.rv=complete(t[1], source_highlight)`>
+${VISUAL}$0
+</code>
+endsnippet
+
+snippet file "code block with a download link"
+<file $1`!p snip.rv=complete(t[1], source_highlight)` ${2:filename}>
+${VISUAL}$0
+</file>
+endsnippet
+
+snippet hrule "horizontal ruler"
+----
+endsnippet
+
+snippet ctrl "control macro"
 ~~$1`!p snip.rv=complete(t[1], ['NOTOC', 'NOCACHE'])`~~
 endsnippet

@@ -1,3 +1,7 @@
+global !p
+from wiki_base import *
+endglobal
+
 snippet h2 "Header Level 2" b
 == ${VISUAL}$1 ==
 $0
@@ -23,54 +27,77 @@ snippet h6 "Header Level 6" b
 $0
 endsnippet
 
-snippet '' "italic text"
+snippet i "italic text"
 ''${VISUAL}$1''
 endsnippet
 
-snippet ''' "bold text"
+snippet b "bold text"
 '''${VISUAL}$1'''
-$0
 endsnippet
 
-snippet '''' "bold and italic text"
+snippet bi "bold and italic text"
 ''''${VISUAL}$1''''
-$0
 endsnippet
 
-snippet strike "strike text"
+snippet strike "striked or deleted text"
 <strike>${VISUAL}$1</strike>
+endsnippet
+
+snippet u "underlined text"
+<u>${VISUAL}$0</u>
+endsnippet
+
+snippet m "monospaced text"
+<tt>${VISUAL}$1</tt>
+endsnippet
+
+snippet sup "superscript text"
+<sup>${VISUAL}$1</sup>
+endsnippet
+
+snippet sub "subscript text"
+<sub>${VISUAL}$1</sub>
 endsnippet
 
 snippet nowiki "nowiki text"
 <nowiki>${VISUAL}$1</nowiki>
 endsnippet
 
+snippet bl "bullet list" b
+* ${VISUAL}$1
+endsnippet
+
+snippet ol "numbered list" b
+# ${VISUAL}$1
+endsnippet
+
+snippet il "an internal link"
+[[${VISUAL}$1|$2]]
+endsnippet
+
+snippet el "an external link"
+[${VISUAL}$1 $2]
+endsnippet
+
+snippet res "external ressources such as images and files"
+[[Image:${VISUAL}$1]]
+endsnippet
+
+snippet code "code block"
+<code>
+${VISUAL}$1
+</code>
+endsnippet
+
+#FIXME add geshi support
+snippet ilcode "inline code block"
+<code>${VISUAL}$1</code>
+endsnippet
+
 snippet hrule "horizontal ruler"
 ----
 endsnippet
 
-snippet * "bullet list" b
-* ${VISUAL}$1
-endsnippet
-
-snippet - "numbered list" b
-# ${VISUAL}$1
-endsnippet
-
-snippet : "indent" b
+snippet in "indent" b
 : ${VISUAL}$1
-endsnippet
-
-snippet code "code"
-<source>
-${VISUAL}$1
-</source>
-endsnippet
-
-snippet intlink "an internal link"
-[[${VISUAL}$1|$2]]
-endsnippet
-
-snippet extlink "an external link"
-[${VISUAL}$1 $2]
 endsnippet

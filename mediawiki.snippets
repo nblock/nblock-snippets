@@ -28,39 +28,39 @@ $0
 endsnippet
 
 snippet i "italic text"
-''${VISUAL}$1''
+''${VISUAL}$1'' $0
 endsnippet
 
 snippet b "bold text"
-'''${VISUAL}$1'''
+'''${VISUAL}$1''' $0
 endsnippet
 
 snippet bi "bold and italic text"
-''''${VISUAL}$1''''
+''''${VISUAL}$1'''' $0
 endsnippet
 
 snippet strike "striked or deleted text"
-<strike>${VISUAL}$1</strike>
+<strike>${VISUAL}$1</strike> $0
 endsnippet
 
 snippet u "underlined text"
-<u>${VISUAL}$0</u>
+<u>${VISUAL}$0</u> $0
 endsnippet
 
 snippet m "monospaced text"
-<tt>${VISUAL}$1</tt>
+<tt>${VISUAL}$1</tt> $0
 endsnippet
 
 snippet sup "superscript text"
-<sup>${VISUAL}$1</sup>
+<sup>${VISUAL}$1</sup> $0
 endsnippet
 
 snippet sub "subscript text"
-<sub>${VISUAL}$1</sub>
+<sub>${VISUAL}$1</sub> $0
 endsnippet
 
 snippet nowiki "nowiki text"
-<nowiki>${VISUAL}$1</nowiki>
+<nowiki>${VISUAL}$1</nowiki> $0
 endsnippet
 
 snippet bl "bullet list" b
@@ -72,19 +72,19 @@ snippet ol "numbered list" b
 endsnippet
 
 snippet il "an internal link"
-[[${VISUAL}$1|$2]]
+[[${VISUAL}$1|$2]] $0
 endsnippet
 
 snippet el "an external link"
-[${VISUAL}$1 $2]
+[${VISUAL}$1 $2] $0
 endsnippet
 
 snippet res "external ressources such as images and files"
-[[Image:${VISUAL}$1]]
+[[Image:${VISUAL}$1]] $0
 endsnippet
 
 snippet ilcode "inline code block"
-<code>${VISUAL}$1</code>
+<code>${VISUAL}$1</code> $0
 endsnippet
 
 snippet code "code code block with syntax highlighting"
@@ -99,4 +99,9 @@ endsnippet
 
 snippet in "indent" b
 : ${VISUAL}$1
+endsnippet
+
+#custom extensions
+snippet s "simple status indication (TODO, WIP, DONE)"
+{{$1`!p snip.rv=complete(t[1], ["no", "yes", "WIP"])`|`!p snip.rv = replace(t[1], {"no":"TODO", "yes":"DONE", "WIP":"WIP"})`}} $0
 endsnippet

@@ -6,3 +6,10 @@ def complete (t, opts):
   if len(opts) == 1:
     return opts[0]
   return "(" + "|".join(opts) + ")"
+
+def replace (t, lookup):
+  for k in lookup.keys():
+    if k.startswith(t):
+      return lookup[k]
+  else:
+      return ""

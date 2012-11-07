@@ -28,39 +28,39 @@ $0
 endsnippet
 
 snippet b "bold text"
-**${VISUAL}$0**
+**${VISUAL}$1** $0
 endsnippet
 
 snippet i "italic text"
-//${VISUAL}$0//
+//${VISUAL}$1// $0
 endsnippet
 
 snippet bi "bold and italic text"
-**//${VISUAL}$0//**
+**//${VISUAL}$1//** $0
 endsnippet
 
 snippet strike "striked or deleted text"
-<del>${VISUAL}$0</del>
+<del>${VISUAL}$1</del> $0
 endsnippet
 
 snippet u "underlined text"
-__${VISUAL}$0__
+__${VISUAL}$1__ $0
 endsnippet
 
 snippet m "monospaced text"
-''${VISUAL}$1''
+''${VISUAL}$1'' $0
 endsnippet
 
 snippet sup "superscript text"
-<sup>${VISUAL}$1</sup>
+<sup>${VISUAL}$1</sup> $0
 endsnippet
 
 snippet sub "subscript text"
-<sub>${VISUAL}$1</sub>
+<sub>${VISUAL}$1</sub> $0
 endsnippet
 
 snippet nowiki "nowiki text"
-%%${VISUAL}$1%%
+%%${VISUAL}$1%% $0
 endsnippet
 
 snippet bl "bulletpoint list" b
@@ -72,15 +72,15 @@ snippet ol "ordered list" b
 endsnippet
 
 snippet il "a link to another ressource (internal)"
-[[${VISUAL}$1|$2]]
+[[${VISUAL}$1|$2]] $0
 endsnippet
 
 snippet el "a link to another ressource (external)"
-[[${VISUAL}$1|$2]]
+[[${VISUAL}$1|$2]] $0
 endsnippet
 
 snippet res "external ressources such as images and files"
-{{${VISUAL}$1|$2}}
+{{${VISUAL}$1|$2}} $0
 endsnippet
 
 snippet code "code block"

@@ -3,43 +3,43 @@ clearsnippets main for while if ife once
 snippet main "main() (main)"
 int main(int argc, char const *argv[])
 {
-	${0:/* code */}
-	return 0;
+    ${0:/* code */}
+    return 0;
 }
 endsnippet
 
 snippet for "for int loop (fori)"
 for (${4:size_t} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}){
-	${0:/* code */}
+    ${0:/* code */}
 }
 endsnippet
 
 snippet while "while loop (while)"
 while(${1:/* condition */}){
-	${0:/* code */}
+    ${0:/* code */}
 }
 endsnippet
 
 snippet if "if .. (if)"
 if (${1:/* condition */}){
-	${0:/* code */}
+    ${0:/* code */}
 }
 endsnippet
 
 snippet ife "if .. else (ife)"
 if (${1:/* condition */}){
-        ${2:/* code */}
+    ${2:/* code */}
 } else{
-        ${3:/* else */}
+    ${3:/* else */}
 }
 endsnippet
 
 snippet once "Include header once only guard"
 #ifndef ${1:`!p
 if not snip.c:
-	import string
-	name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
-	snip.rv = ('__%s' % name.upper())
+    import string
+    name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
+    snip.rv = ('__%s' % name.upper())
 else:
     snip.rv = snip.c`}
 #define $1
@@ -51,11 +51,19 @@ ${0}
 endsnippet
 
 #own snippets
+snippet test "setup a check testcase"
+START_TEST (test_${1:name of the testcase})
+{
+    ${0:/* code */}
+}
+END_TEST
+endsnippet
+
 #snippet func "func() (func)"
 #int $1:(int argc, char const *argv[])
 #{
-#	${0:/* code */}
-#	return 0;
+#    ${0:/* code */}
+#    return 0;
 #}
 #endsnippet
 

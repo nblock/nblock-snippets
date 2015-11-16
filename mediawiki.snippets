@@ -105,3 +105,11 @@ endsnippet
 snippet s "simple status indication (TODO, WIP, DONE)"
 {{$1`!p snip.rv=complete(t[1], ["no", "yes", "WIP"])`|`!p snip.rv = replace(t[1], {"no":"TODO", "yes":"DONE", "WIP":"WIP"})`}} $0
 endsnippet
+
+snippet usercmd "usercmd template (Run programs as user)"
+{{usercmd|cmd=$1}} $0
+endsnippet
+
+snippet rootcmd "rootcmd template (Run programs as user with sudo)"
+{{rootcmd|cmd=$1}} $0
+endsnippet
